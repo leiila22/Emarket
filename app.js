@@ -60,20 +60,23 @@ function showProduct(list) {
         products.innerHTML += `
         <div class="group" >
             <div  class="relative flex max-h-[410px] items-center justify-center bg-[#f7f7f7] overflow-hidden">
-                <img onclick="openProductModal(${product.id})"  src="${product.image}" alt="${product.title}" class="cursor-pointer h-[150px] lg:h-[300px] w-full object-cover transition duration-300 group-hover:scale-[1.02]">
+                <img src="${product.image}" alt="${product.title}" class="cursor-pointer max-h-[250px] lg:h-[300px] w-full object-cover transition duration-300 group-hover:scale-[1.02]">
                 <div class="absolute left-[24px] top-1/2 flex -translate-y-1/2 flex-col gap-[8px]
                     opacity-0 translate-x-[-10px] transition-all duration-300
                     group-hover:translate-x-0 group-hover:opacity-100">
-                    <button onclick="addcart(${product.id})" class="cursor-pointer flex h-[30px] w-[30px] lg:h-[58px] lg:w-[58px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
+                    <button onclick="addcart(${product.id})" class="cursor-pointer flex h-[30px] w-[30px] lg:h-[48px] lg:w-[48px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </button>
 
-                    <button onclick="addwish(${product.id})" class="cursor-pointer flex h-[30px] w-[30px] lg:h-[58px] lg:w-[58px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
+                    <button onclick="addwish(${product.id})" class="cursor-pointer flex h-[30px] w-[30px] lg:h-[48px] lg:w-[48px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <button class="cursor-pointer flex h-[30px] w-[30px] lg:h-[58px] lg:w-[58px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
+                    <button class="cursor-pointer flex h-[30px] w-[30px] lg:h-[48px] lg:w-[48px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
                         <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+                    <button onclick="openProductModal(${product.id})" class="cursor-pointer flex h-[30px] w-[30px] lg:h-[48px] lg:w-[48px] items-center justify-center rounded-full bg-white text-[#333] shadow-sm transition hover:bg-[#222] hover:text-white">
+                        <i class="fa-solid fa-eye"></i>
                     </button>
 
                     
