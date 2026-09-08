@@ -24,7 +24,6 @@
     --color-slate-500: oklch(55.4% 0.046 257.417);
     --color-slate-600: oklch(44.6% 0.043 257.281);
     --color-slate-900: oklch(20.8% 0.042 265.755);
-    --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
@@ -67,7 +66,6 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --tracking-wider: 0.05em;
-    --tracking-widest: 0.1em;
     --radius-md: 0.375rem;
     --radius-lg: 0.5rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -439,9 +437,6 @@
   .h-\[38vh\] {
     height: 38vh;
   }
-  .h-\[150px\] {
-    height: 150px;
-  }
   .h-\[200px\] {
     height: 200px;
   }
@@ -457,14 +452,8 @@
   .max-h-\[95vh\] {
     max-height: 95vh;
   }
-  .max-h-\[200px\] {
-    max-height: 200px;
-  }
   .max-h-\[250px\] {
     max-height: 250px;
-  }
-  .max-h-\[300px\] {
-    max-height: 300px;
   }
   .max-h-\[410px\] {
     max-height: 410px;
@@ -942,6 +931,9 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
   .text-\[12px\] {
     font-size: 12px;
   }
@@ -1347,6 +1339,9 @@
     .sm\:hidden {
       display: none;
     }
+    .sm\:h-\[300px\] {
+      height: 300px;
+    }
     .sm\:h-\[380px\] {
       height: 380px;
     }
@@ -1392,8 +1387,14 @@
       font-size: var(--text-base);
       line-height: var(--tw-leading, var(--text-base--line-height));
     }
+    .sm\:text-\[12px\] {
+      font-size: 12px;
+    }
     .sm\:text-\[14px\] {
       font-size: 14px;
+    }
+    .sm\:text-\[16px\] {
+      font-size: 16px;
     }
   }
   @media (width >= 48rem) {
@@ -1432,6 +1433,9 @@
     }
     .md\:justify-evenly {
       justify-content: space-evenly;
+    }
+    .md\:gap-0 {
+      gap: 0px;
     }
     .md\:gap-6 {
       gap: calc(var(--spacing) * 6);
@@ -1503,9 +1507,6 @@
     .lg\:h-\[48px\] {
       height: 48px;
     }
-    .lg\:h-\[58px\] {
-      height: 58px;
-    }
     .lg\:h-\[300px\] {
       height: 300px;
     }
@@ -1514,9 +1515,6 @@
     }
     .lg\:w-\[48px\] {
       width: 48px;
-    }
-    .lg\:w-\[58px\] {
-      width: 58px;
     }
     .lg\:grid-cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));

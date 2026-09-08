@@ -139,7 +139,7 @@
                         </button>
                         <div id="mobileSearch" class="sm:hidden absolute left-[-100px] top-12 w-[180px] bg-white rounded-full shadow-lg opacity-0 invisible -translate-y-2 transition-all duration-300 z-[100]">
                             <div class="relative">
-                                <input type="text" placeholder="Search" oninput="axtariset(this.value)" class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-full text-sm text-gray-600 focus:outline-none focus:border-pink-500">
+                                <input id="mobilesrch" type="text" placeholder="Search" oninput="axtariset(this.value)" class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-full text-sm text-gray-600 focus:outline-none focus:border-pink-500">
                                 <i  class="fa-solid fa-magnifying-glass  absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
                                 ></i>
                             </div>
@@ -410,37 +410,37 @@
                 </div>
             </div>
             <div class="mx-auto px-4">
-                <div class="border-t border-b border-dashed text-center border-[#e5e5e5] items-center sm:justify-around flex flex-col sm:flex-row py-5 lg:px-20" >
-                    <div class="p-6  items-center flex flex-col gap-2 group cursor-pointer">
-                        <svg  class="md:h-[102px] w-[50px]  md:w-[102px]"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250.00 250.00" xml:space="preserve" fill="#999" stroke="#999" transform="rotate(45)matrix(1, 0, 0, 1, 0, 0)" stroke-width="0.0025"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#999;" d="M166.65,177.884l29.303,15.289v-90.841L166.65,87.044V38.745L125,0L83.348,38.745v48.3 l-29.301,15.287v90.841l29.301-15.287v12.629h83.303V177.884z M125,83.929c-10.164,0-18.404-8.24-18.404-18.404 c0-10.164,8.24-18.404,18.404-18.404s18.404,8.24,18.404,18.404C143.404,75.688,135.164,83.929,125,83.929z M92.968,229.362v-27.794 h14.529v27.794H92.968z M117.735,250v-48.432h14.529V250H117.735z M142.501,229.362v-27.794h14.529v27.794H142.501z"></path> </g></svg>
-                        <p class="text-[16px] font-semibold group-hover:text-[#ef5382] mt-1 text-[#222]">
+                <div class="border-t border-b border-dashed text-center border-[#e5e5e5] items-center sm:justify-around flex flex-col sm:flex-row py-5 gap-2 md:gap-0 lg:px-20" >
+                    <div class="md:p-6 p-3  items-center flex flex-col gap-2 group cursor-pointer">
+                        <svg  class=" w-[30px]  md:w-[102px]"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250.00 250.00" xml:space="preserve" fill="#999" stroke="#999" transform="rotate(45)matrix(1, 0, 0, 1, 0, 0)" stroke-width="0.0025"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#999;" d="M166.65,177.884l29.303,15.289v-90.841L166.65,87.044V38.745L125,0L83.348,38.745v48.3 l-29.301,15.287v90.841l29.301-15.287v12.629h83.303V177.884z M125,83.929c-10.164,0-18.404-8.24-18.404-18.404 c0-10.164,8.24-18.404,18.404-18.404s18.404,8.24,18.404,18.404C143.404,75.688,135.164,83.929,125,83.929z M92.968,229.362v-27.794 h14.529v27.794H92.968z M117.735,250v-48.432h14.529V250H117.735z M142.501,229.362v-27.794h14.529v27.794H142.501z"></path> </g></svg>
+                        <p class="sm:text-[16px] text-[14px] font-semibold group-hover:text-[#ef5382] mt-1 text-[#222]">
                             Free Shipping
                         </p>
-                        <span class="text-[12px] group-hover:text-[#ef5382] text-[#999]">
+                        <span class="sm:text-[12px] text-[10px] group-hover:text-[#ef5382] text-[#999]">
                             Free shipping on all UK oders
                         </span>
                     </div>
-                    <div class="p-6  items-center flex flex-col gap-2 group cursor-pointer">
-                        <i class="fa-solid fa-sack-dollar text-5xl md:text-[82px] text-[#999] mb-2"></i>
-                        <p class="text-[16px] font-semibold group-hover:text-[#ef5382] mt-1 text-[#222]">
+                    <div class="md:p-6 p-3  items-center flex flex-col gap-2 group cursor-pointer">
+                        <i class="fa-solid fa-sack-dollar text-3xl  md:text-[82px] text-[#999] mb-2"></i>
+                        <p class="sm:text-[16px] text-[14px] font-semibold group-hover:text-[#ef5382] mt-1 text-[#222]">
                             Money Guarantee
                         </p>
-                        <span class="text-[12px] group-hover:text-[#ef5382] text-[#999]">
+                        <span class="sm:text-[12px] text-[10px] group-hover:text-[#ef5382] text-[#999]">
                             30 days money back guarantee
                         </span>
                     </div>
-                    <div class="p-6  items-center flex flex-col gap-2 group cursor-pointer">
-                        <i class="fa-solid fa-headphones text-5xl md:text-[82px] mb-2 text-[#999]"></i>
-                        <p class="text-[16px] font-semibold group-hover:text-[#ef5382] mt-1 text-[#222]">
+                    <div class="md:p-6 p-3  items-center flex flex-col gap-2 group cursor-pointer">
+                        <i class="fa-solid fa-headphones text-3xl md:text-[82px] mb-2 text-[#999]"></i>
+                        <p class="sm:text-[16px] text-[14px] font-semibold group-hover:text-[#ef5382] mt-1 text-[#222]">
                             SuppFort 24/7
                         </p>
-                        <span class="text-[12px] group-hover:text-[#ef5382] text-[#999]">
+                        <span class="sm:text-[12px] text-[10px] group-hover:text-[#ef5382] text-[#999]">
                             We support online 24/24 on day
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="pt-10 px-3">
+            <div class="pt-10 px-3 flex flex-col gap-3">
                 <div class="flex flex-row card gap-3 flex-wrap items-center justify-center">
                     <img src="img/maestro-card.png" class="cursor-pointer" alt="">
                     <img src="img/paypal.svg" class="cursor-pointer" alt="">

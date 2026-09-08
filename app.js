@@ -60,7 +60,7 @@ function showProduct(list) {
         products.innerHTML += `
         <div class="group" >
             <div  class="relative flex max-h-[410px] items-center justify-center bg-[#f7f7f7] overflow-hidden">
-                <img src="${product.image}" alt="${product.title}" class="cursor-pointer max-h-[250px] lg:h-[300px] w-full object-cover transition duration-300 group-hover:scale-[1.02]">
+                <img src="${product.image}" alt="${product.title}" class="cursor-pointer max-h-[250px] sm:h-[300px] w-full object-cover transition duration-300 group-hover:scale-[1.02]">
                 <div class="absolute left-[24px] top-1/2 flex -translate-y-1/2 flex-col gap-[8px]
                     opacity-0 translate-x-[-10px] transition-all duration-300
                     group-hover:translate-x-0 group-hover:opacity-100">
@@ -384,7 +384,10 @@ function openProductModal(id) {
     const images = product.images && product.images.length > 0 
         ? product.images 
         : [product.image, product.image, product.image, product.image];
-
+    srchcontainer.style.display = 'none'
+    document.getElementById('searchInput').value = ''
+    document.getElementById('mobilesrch').value = ''
+    
     productModalContent.innerHTML = `
         <!-- Sol tərəf: Şəkillər və Qalereya -->
         <div class="flex flex-col gap-4">
