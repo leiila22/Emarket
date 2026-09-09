@@ -60,7 +60,7 @@ function showProduct(list) {
         products.innerHTML += `
         <div class="group" >
             <div  class="relative flex max-h-[410px] items-center justify-center bg-[#f7f7f7] overflow-hidden">
-                <img src="${product.image}" alt="${product.title}" class="cursor-pointer max-h-[250px] sm:h-[300px] w-full object-cover transition duration-300 group-hover:scale-[1.02]">
+                <img onclick="openProductModal(${product.id})" src="${product.image}" alt="${product.title}" class="cursor-pointer max-h-[250px] sm:h-[300px] w-full object-cover transition duration-300 group-hover:scale-[1.02]">
                 <div class="absolute left-[24px] top-1/2 flex -translate-y-1/2 flex-col gap-[8px]
                     opacity-0 translate-x-[-10px] transition-all duration-300
                     group-hover:translate-x-0 group-hover:opacity-100">
@@ -176,14 +176,14 @@ function srcporduct(axtarisSon) {
         return `
             <li onclick="openProductModal(${item.id})">
                 <a href="#" class="flex max-sm:flex-col items-center md:gap-6 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
-                    <div class="w-24 h-24 shrink-0 bg-gray-100 p-3 overflow-hidden rounded-lg dark:bg-neutral-800">
+                    <div class="w-24 h-24 shrink-0 bg-gray-100 p-3 overflow-hidden rounded-lg ">
                         <img src="${item.image}" alt="${item.title}" class="h-full w-full object-contain" />
                     </div>
                     <div class="text-center sm:text-left">
-                        <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-black">
+                        <h3 class="text-sm sm:text-base font-semibold text-slate-900 ">
                             ${item.title}
                         </h3>
-                        <p class="text-sm sm:text-base text-pink-700 font-bold lg:mt-2 dark:text-pink-600">
+                        <p class="text-sm sm:text-base text-pink-700 font-bold lg:mt-2 ">
                             ${item.price} Azn
                         </p>
                     </div>
@@ -285,26 +285,26 @@ function showSevimliler() {
         let product = AllProduct.find(p => p.id === id);
         if (!product) return '';
         return `
-            <li class="flex gap-4 bg-white px-4 py-6 rounded-md border border-slate-300 dark:bg-neutral-800 dark:border-neutral-700">
+            <li class="flex gap-4 bg-white px-4 py-6 rounded-md border border-slate-300 ">
                 <div class="flex gap-6 sm:gap-4 max-sm:flex-col">
                     <div class="w-24 h-24 max-sm:w-24 max-sm:h-24 shrink-0">
                         <img src="${product.image}" onclick="openProductModal(${product.id})" class="w-full h-full object-contain" alt="${product.title}">
                     </div>
                     <div class="flex flex-col gap-4">
                         <div>
-                            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">${product.title}</h3>
-                            <p class="text-[13px] text-slate-600 mt-2 flex items-center gap-2 dark:text-slate-400">
-                                Kateqoriya: <span class="font-medium dark:text-slate-300">${product.category}</span>
+                            <h3 class="text-base font-semibold text-slate-900 ">${product.title}</h3>
+                            <p class="text-[13px] text-slate-600 mt-2 flex items-center gap-2 ">
+                                Kateqoriya: <span class="font-medium ">${product.category}</span>
                             </p>
                         </div>
                         <div class="mt-auto">
-                            <p class="text-sm font-semibold text-slate-900 dark:text-slate-50">${product.price} Azn</p>
+                            <p class="text-sm font-semibold text-slate-900 ">${product.price} Azn</p>
                         </div>
                     </div>
                 </div>
                 <div class="ml-auto flex items-start justify-end">
                     <button onclick="removeWish(${product.id})" type="button" aria-label="Remove from wishlist" class="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-slate-400 hover:fill-red-600 inline-block dark:hover:fill-red-500" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-slate-400 hover:fill-red-600 inline-block " viewBox="0 0 24 24">
                             <path d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"></path>
                             <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"></path>
                         </svg>
@@ -322,26 +322,29 @@ function removeWish(id) {
     if (sevimliler.length === 0) {
         favorimodal.style.display = 'none';
     }
+    if (sevimliler.length === 0) {
+        Wishlistcount.style.display = 'none';
+    }
 }
 function showBasket() {
     cartlist.innerHTML = SEBET.map((item) => {
         let product = AllProduct.find(p => p.id === item.id);
         if (!product) return '';
         return `
-            <li class="flex gap-4 bg-white px-4 py-6 rounded-md border border-slate-300 dark:bg-neutral-800 dark:border-neutral-700">
+            <li class="flex gap-4 bg-white px-4 py-6 rounded-md border border-slate-300 ">
                 <div class="flex gap-6 sm:gap-4 max-sm:flex-col">
                     <div class="w-24 h-24 max-sm:w-24 max-sm:h-24 shrink-0">
                         <img src="${product.image}" class="w-full h-full object-contain" alt="${product.title}">
                     </div>
                     <div class="flex flex-col gap-4">
                         <div>
-                            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">${product.title}</h3>
-                            <p class="text-[13px] text-slate-600 mt-2 flex items-center gap-2 dark:text-slate-400">
-                                Kateqoriya: <span class="font-medium dark:text-slate-300">${product.category}</span>
+                            <h3 class="text-base font-semibold text-slate-900 ">${product.title}</h3>
+                            <p class="text-[13px] text-slate-600 mt-2 flex items-center gap-2 ">
+                                Kateqoriya: <span class="font-medium ">${product.category}</span>
                             </p>
                         </div>
                         <div class="mt-auto">
-                            <p class="text-sm font-semibold text-slate-900 dark:text-slate-50">${product.price} Azn</p>
+                            <p class="text-sm font-semibold text-slate-900 ">${product.price * item.say} Azn</p>
                         </div>
                     </div>
                 </div>
@@ -349,14 +352,14 @@ function showBasket() {
                 <div class="ml-auto flex flex-col">
                     <div class="flex items-start gap-4 justify-end">
                         <button onclick="removeSebet(${product.id})" type="button" class="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-slate-400 hover:fill-red-600 inline-block dark:hover:fill-red-500" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-slate-400 hover:fill-red-600 inline-block " viewBox="0 0 24 24">
                                 <path d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"></path>
                                 <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"></path>
                             </svg>
                         </button>
                     </div>
 
-                    <div class="flex items-center mt-auto px-2.5 py-1.5 border border-slate-300 text-slate-900 font-medium text-xs rounded-md dark:border-neutral-700 dark:text-slate-50 dark:bg-neutral-800">
+                    <div class="flex items-center mt-auto px-2.5 py-1.5 border border-slate-300 text-slate-900 font-medium text-xs rounded-md ">
                         <button onclick="decrease(${product.id})" type="button" class="cursor-pointer focus:outline-none">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 fill-current" viewBox="0 0 124 124">
                                 <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"></path>
@@ -380,7 +383,7 @@ function openProductModal(id) {
     const product = AllProduct.find(p => p.id === id);
     if (!product) return;
     currentModalProductId = id;
-    modalQuantity = 1;
+    product.say = 1;
     const images = product.images && product.images.length > 0 
         ? product.images 
         : [product.image, product.image, product.image, product.image];
@@ -405,7 +408,7 @@ function openProductModal(id) {
         </div>
         <div class="flex flex-col justify-between">
             <div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">${product.title}</h2>
+                <h2 class="text-2xl font-bold text-gray-900">${product.title}</h2>
                 <!-- Reytinq və Satış Statı (API-dən gələn data) -->
                 <div class="mt-2 flex items-centerflex sm:flex-row flex-col justify-between text-sm">
                     <div class="flex items-center gap-1 text-amber-400">
@@ -420,32 +423,32 @@ function openProductModal(id) {
                         <i class="fa-solid fa-fire mr-1"></i>${product.sold || 0} sold. Only ${product.stock || 0} remain
                     </p>
                 </div>
-                <p class="mt-4 text-3xl font-bold text-[#e85b7a]">
-                    $${product.price}
+                <p id="modalPriceValue" class="mt-4 text-3xl font-bold text-[#e85b7a]">
+                    $${(product.price * product.say).toFixed(2)}
                 </p>
-                <div class="mt-4 space-y-1 text-xs text-gray-500 dark:text-gray-400">
-                    <p><span class="inline-block w-24 font-medium text-gray-700 dark:text-gray-300">Brand:</span> ${product.brand || 'N/A'}</p>
-                    <p><span class="inline-block w-24 font-medium text-gray-700 dark:text-gray-300">Product Code:</span> ${product.productCode || 'N/A'}</p>
-                    <p><span class="inline-block w-24 font-medium text-gray-700 dark:text-gray-300">Stock:</span> <span class="text-emerald-600"><i class="fa-regular fa-square-check mr-1"></i>${product.delivery || 'In Stock'}</span></p>
+                <div class="mt-4 space-y-1 text-xs text-gray-500 ">
+                    <p><span class="inline-block w-24 font-medium text-gray-700 ">Brand:</span> ${product.brand || 'N/A'}</p>
+                    <p><span class="inline-block w-24 font-medium text-gray-700 ">Product Code:</span> ${product.productCode || 'N/A'}</p>
+                    <p><span class="inline-block w-24 font-medium text-gray-700 ">Stock:</span> <span class="text-emerald-600"><i class="fa-regular fa-square-check mr-1"></i>${product.delivery || 'In Stock'}</span></p>
                 </div>
                 <div class="mt-6">
-                    <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                    <label class="block text-xs font-medium text-gray-600  mb-1">
                         Qty
                     </label>
-                    <div class="inline-flex items-center rounded-md border border-gray-300 dark:border-neutral-700">
+                    <div class="inline-flex items-center rounded-md border border-gray-300 ">
                         <button 
                             onclick="modalDecrease()"
-                            class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800">
+                            class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 ">
                             -
                         </button>
                         <span 
                             id="modalQtyValue"
-                            class="px-4 py-1.5 text-sm font-semibold text-gray-800 dark:text-white">
-                            1
+                            class="px-4 py-1.5 text-sm font-semibold text-gray-800 ">
+                            ${product.say}
                         </span>
                         <button 
                             onclick="modalIncrease()"
-                            class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800">
+                            class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 ">
                             +
                         </button>
                     </div>
@@ -458,22 +461,22 @@ function openProductModal(id) {
                         BUY NOW
                     </button>
                 </div>
-                <div class="mt-4 flex flex-row flex-wrap items-center gap-6 text-xs text-gray-600 dark:text-gray-400">
+                <div class="mt-4 flex flex-row flex-wrap items-center gap-6 text-xs text-gray-600 ">
                     <button onclick="addwish(${product.id})" class="flex items-center gap-2 hover:text-[#d85b78]">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 ">
                         <i class="fa-regular fa-heart"></i>
                         </span>
                         ADD TO WISHLIST
                     </button>
-                    <button class="flex items-center gap-2 hover:text-black dark:hover:text-white">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"><i class="fa-solid fa-arrows-rotate"></i></span>
+                    <button class="flex items-center gap-2 hover:text-black ">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 "><i class="fa-solid fa-arrows-rotate"></i></span>
                         ADD TO COMPARE
                     </button>
                 </div>
             </div>
-            <div class="mt-6 border-t border-gray-200 pt-4 text-xs text-gray-500 dark:border-neutral-800">
+            <div class="mt-6 border-t border-gray-200 pt-4 text-xs text-gray-500 ">
                 <span class="mr-2">Tags:</span>
-                <span class="rounded bg-gray-200 px-2.5 py-1 font-medium text-gray-700 dark:bg-neutral-800 dark:text-gray-300">${product.category}</span>
+                <span class="rounded bg-gray-200 px-2.5 py-1 font-medium text-gray-700">${product.category}</span>
             </div>
         </div>
     `;
@@ -481,41 +484,48 @@ function openProductModal(id) {
     productDetailModal.classList.add('flex');
     openSearch()
 }
-let modalQuantity = 1;
 let currentModalProductId = null;
 function modalIncrease() {
-    modalQuantity++;
-    const qty = document.getElementById("modalQtyValue");
-    if (qty) qty.innerText = modalQuantity
+    const product = AllProduct.find(p => p.id === currentModalProductId);
+    if (!product) return;
+
+    product.say++;
+
+    document.getElementById("modalQtyValue").innerText = product.say;
+    document.getElementById("modalPriceValue").innerText = `$${(product.price * product.say).toFixed(2)}`;
 }
 
 function modalDecrease() {
-    if (modalQuantity > 1)  modalQuantity--
-    const qty = document.getElementById("modalQtyValue");
-    if (qty) qty.innerText = modalQuantity
+    const product = AllProduct.find(p => p.id === currentModalProductId);
+    if (!product) return;
+
+    if (product.say > 1) product.say--;
+
+    document.getElementById("modalQtyValue").innerText = product.say;
+    document.getElementById("modalPriceValue").innerText = `$${(product.price * product.say).toFixed(2)}`;
 }
 function addCartFromModal(id) {
+    const product = AllProduct.find(p => p.id === id);
+    if (!product) return;
+
     const item = SEBET.find(e => e.id === id);
-    if (item)  item.say += modalQuantity;
+    if (item) item.say += product.say;
     else {
         SEBET.push({
             id: id,
-            say: modalQuantity
+            say: product.say
         });
     }
     showBasket();
     updateSebetcount();
     cartcount.style.display = 'flex';
-    // Modalı bağla
     productDetailModal.classList.add('hidden');
     productDetailModal.classList.remove('flex');
-    // Quantity-ni sıfırla
-    modalQuantity = 1;
+    product.say = 1; 
 }
 function closeProductModal() {
     productDetailModal.classList.add('hidden');
     productDetailModal.classList.remove('flex');
-    modalQuantity = 1;
     currentModalProductId = null;
 }
 
